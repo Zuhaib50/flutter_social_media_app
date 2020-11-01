@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: width,
-              height: height / 1.5,
+              height: height / 1.4,
               child: getPostsList(context),
             ),
           )
@@ -113,7 +113,7 @@ class BuildStoryContainer extends StatelessWidget with BaseMixins {
 
 getPostsList(context) {
   return Container(
-    color: Colors.grey.withOpacity(0.35),
+    color: Colors.white,
     child: ListView(
       padding: EdgeInsets.only(top: 8),
       scrollDirection: Axis.vertical,

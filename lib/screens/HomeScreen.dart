@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             child: Container(
               width: width,
               height: height / 1.4,
-              child: getPostsList(context),
+              child: GetPostList(),
             ),
           )
         ],
@@ -112,34 +112,45 @@ class BuildStoryContainer extends StatelessWidget with BaseMixins {
 }
 
 getPostsList(context) {
-  return Container(
-    color: Colors.white,
-    child: ListView(
-      padding: EdgeInsets.only(top: 8),
-      scrollDirection: Axis.vertical,
-      children: <Widget>[
-        BuildPost(
-          image: AssetImage('assets/third.jpg'),
-          name: 'Jennifer_Cole',
-          category: 'Photographer',
-          avatar: AssetImage('assets/story.png'),
-        ),
-        BuildPost(
-          image: AssetImage('assets/second.jpg'),
-          name: 'Peter_Range',
-          category: 'Model',
-          avatar: AssetImage('assets/story2.png'),
-        ),
-        BuildPost(
-          image: AssetImage('assets/first.jpg'),
-          name: 'SmartFox',
-          category: 'Actor',
-          avatar: AssetImage('assets/story3.png'),
-        ),
-        SizedBox(
-          height: 100,
-        )
-      ],
-    ),
-  );
+  return GetPostList();
+}
+
+class GetPostList extends StatelessWidget {
+  const GetPostList({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: ListView(
+        padding: EdgeInsets.only(top: 8),
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          BuildPost(
+            image: AssetImage('assets/third.jpg'),
+            name: 'Jennifer_Cole',
+            category: 'Photographer',
+            avatar: AssetImage('assets/story.png'),
+          ),
+          BuildPost(
+            image: AssetImage('assets/second.jpg'),
+            name: 'Peter_Range',
+            category: 'Model',
+            avatar: AssetImage('assets/story2.png'),
+          ),
+          BuildPost(
+            image: AssetImage('assets/first.jpg'),
+            name: 'SmartFox',
+            category: 'Actor',
+            avatar: AssetImage('assets/story3.png'),
+          ),
+          SizedBox(
+            height: 100,
+          )
+        ],
+      ),
+    );
+  }
 }

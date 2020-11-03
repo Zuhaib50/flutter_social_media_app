@@ -5,7 +5,7 @@ import 'package:flutter_social_media_app/widgets/home/BuildPost.dart';
 import 'package:flutter_social_media_app/widgets/home/NewStoryButton.dart';
 import 'package:flutter_social_media_app/widgets/home/UserStoryContainer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget with BaseMixins {
   const HomeScreen({Key key}) : super(key: key);
 
   @override
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            height: height / 3.5,
+            height: height / 3.56,
             width: width,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -46,7 +46,8 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: width,
-              height: height / 1.33,
+              height: responsive(context,
+                  isSmallPhone: height / 1.33, isPhone: height / 1.35),
               child: GetPostList(),
             ),
           )

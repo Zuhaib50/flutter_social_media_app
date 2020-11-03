@@ -61,7 +61,10 @@ class _NewStoryButtonState extends State<NewStoryButton> with BaseMixins {
             ),
             CircleAvatar(
               backgroundColor: Color(0xFF1ab7ea).withOpacity(.6),
-              backgroundImage: AssetImage('assets/Group 156.png'),
+              child: Icon(
+                Icons.add,
+                color: Colors.black,
+              ),
               radius: 15,
             ),
           ],

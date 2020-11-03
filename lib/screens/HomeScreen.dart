@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: width,
-              height: height / 1.4,
+              height: height / 1.33,
               child: GetPostList(),
             ),
           )
@@ -125,7 +125,7 @@ class GetPostList extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: ListView(
-        padding: EdgeInsets.only(top: 8),
+        padding: EdgeInsets.only(top: 2),
         scrollDirection: Axis.vertical,
         children: <Widget>[
           BuildPost(

@@ -3,19 +3,26 @@ import 'package:flutter_social_media_app/screens/HomeScreen.dart';
 import 'package:flutter_social_media_app/widgets/User/HeaderSection.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseHeader.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseIconImage.dart';
+import 'package:flutter_social_media_app/widgets/common/DrawerScreen.dart';
 
 class TrendingScreen extends StatelessWidget {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: scaffoldKey,
+      drawer: DrawerScreen(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BaseHeader(
             width: width,
             height: height,
+            pressed: () {
+              scaffoldKey.currentState.openDrawer();
+            },
           ),
           Column(
             children: [

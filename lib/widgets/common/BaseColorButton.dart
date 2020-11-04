@@ -8,7 +8,7 @@ class BaseColorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       color: Color(0xFF1ab7ea),
       textColor: Colors.white,
       onPressed: pressed,

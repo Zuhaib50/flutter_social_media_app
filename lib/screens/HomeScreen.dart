@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_media_app/mixins/BaseMixins.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseHeader.dart';
+import 'package:flutter_social_media_app/widgets/common/DrawerScreen.dart';
 import 'package:flutter_social_media_app/widgets/home/BuildPost.dart';
 import 'package:flutter_social_media_app/widgets/home/NewStoryButton.dart';
 import 'package:flutter_social_media_app/widgets/home/UserStoryContainer.dart';
 
 class HomeScreen extends StatelessWidget with BaseMixins {
-  const HomeScreen({Key key}) : super(key: key);
-
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: scaffoldKey,
+      drawer: DrawerScreen(),
       body: Stack(
         children: [
           Container(
@@ -31,6 +33,9 @@ class HomeScreen extends StatelessWidget with BaseMixins {
                 BaseHeader(
                   width: width,
                   height: height,
+                  pressed: () {
+                    scaffoldKey.currentState.openDrawer();
+                  },
                 ),
                 SizedBox(
                   height: 10,

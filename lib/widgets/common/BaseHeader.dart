@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'BaseIconImage.dart';
 
 class BaseHeader extends StatelessWidget {
-  const BaseHeader({Key key, @required this.width, this.height})
+  BaseHeader({Key key, @required this.width, this.pressed, this.height})
       : super(key: key);
 
   final double width;
   final double height;
+  Function pressed;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,8 @@ class BaseHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             BaseIconImage(
-              imageUrl: 'assets/Group -3.png',
-              pressed: () {
-                print('drawer');
-              },
-            ),
+                imageUrl: 'assets/Group -3.png',
+                pressed: pressed == null ? () {} : pressed),
             Text(
               'Inskill',
               style: TextStyle(

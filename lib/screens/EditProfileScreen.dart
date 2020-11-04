@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_media_app/Config/Validation_rules.dart';
 import 'package:flutter_social_media_app/mixins/BaseMixins.dart';
+import 'package:flutter_social_media_app/widgets/common/BaseColorButton.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseContainer.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseIconImage.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseImage.dart';
@@ -183,6 +184,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> with BaseMixins {
                                       TextStyle(fontWeight: FontWeight.bold),
                                   labelText: 'Mobile No',
                                 )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Center(
+                              child: Container(
+                                height: height / 16.9,
+                                width: width / 2.7,
+                                child: BaseColorButton(
+                                  title: 'Save',
+                                  pressed: () {},
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),

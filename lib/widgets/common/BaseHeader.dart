@@ -12,7 +12,7 @@ class BaseHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.11,
+      height: height * 0.09,
       width: width,
       decoration: BoxDecoration(
           color: Color(0xFF1ab7ea),

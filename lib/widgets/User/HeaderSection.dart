@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_social_media_app/screens/EditProfileScreen.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseHeader.dart';
 
 class HeaderSection extends StatelessWidget {
@@ -17,7 +18,7 @@ class HeaderSection extends StatelessWidget {
       top: 0,
       child: Container(
         padding: EdgeInsets.fromLTRB(15, 35, 15, 15),
-        height: 370,
+        height: 365,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(
@@ -37,7 +38,7 @@ class HeaderSection extends StatelessWidget {
             ),
             Row(
               children: [
-                _getAvatar(),
+                GetAvatar(),
                 SizedBox(
                   width: 20,
                 ),
@@ -102,10 +103,17 @@ class HeaderSection extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10),
-            _getUserStats(),
-            SizedBox(
-              height: 10,
+            Divider(
+              color: Colors.black,
             ),
+            _getUserStats(),
+            Divider(
+              color: Colors.black,
+            )
+
+            // SizedBox(
+            //   height: 10,
+            // ),
             // _getUserBtns(),
           ],
         ),
@@ -165,25 +173,38 @@ _getUserStats() {
   );
 }
 
-_getAvatar() {
-  return Stack(
-    alignment: AlignmentDirectional.center,
-    children: <Widget>[
-      Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xFF1ab7ea).withOpacity(0.3),
-                spreadRadius: 2,
-                blurRadius: 7,
-                offset: Offset(6, 4), // changes position of shadow
-              ),
-            ],
-            image: DecorationImage(image: AssetImage('assets/face2.jpg')),
-            borderRadius: BorderRadius.circular(50)),
-      ),
-    ],
-  );
+class GetAvatar extends StatelessWidget {
+  const GetAvatar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: AlignmentDirectional.center,
+      children: <Widget>[
+        InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => EditProfileScreen()));
+          },
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFF1ab7ea).withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: Offset(6, 4), // changes position of shadow
+                  ),
+                ],
+                image: DecorationImage(image: AssetImage('assets/face2.jpg')),
+                borderRadius: BorderRadius.circular(50)),
+          ),
+        ),
+      ],
+    );
+  }
 }

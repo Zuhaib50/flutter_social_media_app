@@ -45,8 +45,29 @@ class _DrawerScreenState extends State<DrawerScreen> {
             onTap: () => {},
           ),
           ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text("Favourtes"),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.settings),
             title: Text("Settings"),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text("Log out"),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.help),
+            title: Text("Help"),
             onTap: () {
               Navigator.pop(context);
             },

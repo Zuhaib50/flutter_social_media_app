@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_social_media_app/screens/MessageScreen.dart';
 
 import 'BaseIconImage.dart';
 
@@ -44,7 +45,12 @@ class BaseHeader extends StatelessWidget {
                 ),
                 BaseIconImage(
                   imageUrl: 'assets/Group 163.png',
-                  pressed: () {},
+                  pressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MessageScreen()));
+                  },
                 ),
               ],
             )

@@ -26,7 +26,7 @@ class _UserScreenState extends State<UserScreen> {
           Positioned(
             top: 0,
             child: Container(
-              padding: EdgeInsets.fromLTRB(15, 35, 15, 15),
+              // padding: EdgeInsets.fromLTRB(15, 35, 15, 15),
               height: 365,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(color: Colors.white, boxShadow: [

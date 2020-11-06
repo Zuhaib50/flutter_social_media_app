@@ -57,7 +57,10 @@ class _InterestScreenState extends State<InterestScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       'Your Interest',
-                      style: TextStyle(fontSize: 20, color: Color(0xFF1ab7ea)),
+                      style: TextStyle(
+                          fontSize: 22,
+                          color: Color(0xFF1ab7ea),
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(

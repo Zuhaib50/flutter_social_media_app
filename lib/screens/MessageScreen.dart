@@ -94,7 +94,10 @@ class _HomePageState extends State<MessageScreen> {
         Column(
           children: List.generate(userMessages.length, (index) {
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => ChatDetailPage()));
+              },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Row(

@@ -10,9 +10,11 @@ class ChatDetailPage extends StatefulWidget {
 }
 
 class _ChatDetailPageState extends State<ChatDetailPage> {
+  bool expand = false;
   TextEditingController _sendMessageController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    print((MediaQuery.of(context).size.width - 40) / 2);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey.withOpacity(0.2),
@@ -68,11 +70,100 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         ],
       ),
       body: getBody(),
-      bottomSheet: getBottom(),
+      bottomSheet: Container(
+        height: 80,
+        width: double.infinity,
+        decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                width: expand ? 160 : 60,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        Icons.add_circle,
+                        size: 35,
+                        color: Color(0xFF1ab7ea),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          expand = !expand;
+                          print('pressed');
+                        });
+                      },
+                    ),
+                    expand == true
+                        ? Row(
+                            children: [
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Icon(
+                                Icons.camera_alt,
+                                size: 35,
+                                color: Color(0xFF1ab7ea),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Icon(
+                                Icons.photo,
+                                size: 35,
+                                color: Color(0xFF1ab7ea),
+                              ),
+                            ],
+                          )
+                        : Text('')
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: TextField(
+                              cursorColor: Colors.black,
+                              controller: _sendMessageController,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Aa",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Icon(
+                        Icons.thumb_up,
+                        size: 35,
+                        color: Color(0xFF1ab7ea),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
-  Widget getBottom() {
+  Widget getBottom(expand) {
     return Container(
       height: 80,
       width: double.infinity,
@@ -86,27 +177,40 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               width: (MediaQuery.of(context).size.width - 40) / 2,
               child: Row(
                 children: <Widget>[
-                  Icon(
-                    Icons.add_circle,
-                    size: 35,
-                    color: Color(0xFF1ab7ea),
+                  IconButton(
+                    icon: Icon(
+                      Icons.add_circle,
+                      size: 35,
+                      color: Color(0xFF1ab7ea),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        expand = false;
+                      });
+                    },
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Icon(
-                    Icons.camera_alt,
-                    size: 35,
-                    color: Color(0xFF1ab7ea),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Icon(
-                    Icons.photo,
-                    size: 35,
-                    color: Color(0xFF1ab7ea),
-                  ),
+                  expand == false
+                      ? Row(
+                          children: [
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Icon(
+                              Icons.camera_alt,
+                              size: 35,
+                              color: Color(0xFF1ab7ea),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Icon(
+                              Icons.photo,
+                              size: 35,
+                              color: Color(0xFF1ab7ea),
+                            ),
+                          ],
+                        )
+                      : Text('hwlo')
                 ],
               ),
             ),

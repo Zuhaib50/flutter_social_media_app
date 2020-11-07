@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social_media_app/screens/Auth/RegisterScreen.dart';
+import 'package:flutter_social_media_app/screens/Auth/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_social_media_app/widgets/common/BaseColorButton.dart';
 import 'package:flutter_social_media_app/widgets/common/EmailField.dart';
 import 'package:flutter_social_media_app/widgets/common/GoogleButton.dart';
@@ -48,6 +49,22 @@ class BuildContent extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: PasswordField(),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgotPasswordScreen()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Forgot password?'),
+                ))
+          ],
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),

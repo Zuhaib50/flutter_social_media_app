@@ -91,94 +91,96 @@ class _ImagesState extends State<Images> with AutomaticKeepAliveClientMixin {
           ],
         ),
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-          alignment: Alignment.center,
-          height: height * 0.09,
-          width: width,
-          decoration: BoxDecoration(
-              color: Color(0xFF1ab7ea),
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20))),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BaseIconImage(
-                  imageUrl: 'assets/Group 268.png',
-                  pressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                Text(
-                  'Add Post',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(),
-                SizedBox(
-                  width: 15,
-                )
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.topRight,
-            child: BaseColorButton(
-              title: 'Next',
-              pressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PostScreen()));
-              },
-            ),
-          ),
-        ),
-        Container(
-            height: height / 2,
+      body: SingleChildScrollView(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+            alignment: Alignment.center,
+            height: height * 0.09,
             width: width,
-            child: Image.asset(
-              'assets/sixth.jpg',
-              fit: BoxFit.cover,
-            )),
-        Padding(
-          padding: const EdgeInsets.only(top: 10.0),
-          child: Card(
-            shape: RoundedRectangleBorder(
+            decoration: BoxDecoration(
+                color: Color(0xFF1ab7ea),
                 borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(10),
-                    topRight: Radius.circular(10))),
-            child: Container(
-              height: 60,
-              width: 200,
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BaseIconImage(
-                    imageUrl: 'assets/Group 234.png',
-                    pressed: () {},
+                    imageUrl: 'assets/Group 268.png',
+                    pressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  BaseIconImage(
-                    imageUrl: 'assets/Group 233.png',
-                    pressed: () {},
+                  Text(
+                    'Add Post',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
-                  BaseIconImage(
-                    imageUrl: 'assets/Group 235.png',
-                    pressed: () {},
+                  Container(),
+                  SizedBox(
+                    width: 15,
                   )
                 ],
               ),
             ),
           ),
-        )
-      ]),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: BaseColorButton(
+                title: 'Next',
+                pressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PostScreen()));
+                },
+              ),
+            ),
+          ),
+          Container(
+              height: height / 2,
+              width: width,
+              child: Image.asset(
+                'assets/sixth.jpg',
+                fit: BoxFit.cover,
+              )),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(10),
+                      topRight: Radius.circular(10))),
+              child: Container(
+                height: 60,
+                width: 200,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    BaseIconImage(
+                      imageUrl: 'assets/Group 234.png',
+                      pressed: () {},
+                    ),
+                    BaseIconImage(
+                      imageUrl: 'assets/Group 233.png',
+                      pressed: () {},
+                    ),
+                    BaseIconImage(
+                      imageUrl: 'assets/Group 235.png',
+                      pressed: () {},
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ]),
+      ),
     );
   }
 

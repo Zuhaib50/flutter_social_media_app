@@ -33,6 +33,10 @@ dependencies:
   line_icons:
 
   device_preview: ^0.4.8
+  storage_path: ^0.0.8
+  transparent_image: ^1.0.0
+  media_gallery :
+
 
 dev_dependencies:
   flutter_test:

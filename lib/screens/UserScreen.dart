@@ -49,40 +49,43 @@ class _UserScreenState extends State<UserScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [
-                      GetAvatar(),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Kyle Smith',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Color(0xFF1ab7ea),
-                                fontWeight: FontWeight.w500),
-                          ),
-                          Text('Fashion',
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        GetAvatar(),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Kyle Smith',
                               style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              )),
-                          Text('Living my dreams!!',
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14)),
-                          Text('KyleS.123@gmail.com',
-                              style: TextStyle(
+                                  fontSize: 24,
                                   color: Color(0xFF1ab7ea),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14)),
-                        ],
-                      ),
-                    ],
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            Text('Fashion',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                )),
+                            Text('Living my dreams!!',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14)),
+                            Text('KyleS.123@gmail.com',
+                                style: TextStyle(
+                                    color: Color(0xFF1ab7ea),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14)),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

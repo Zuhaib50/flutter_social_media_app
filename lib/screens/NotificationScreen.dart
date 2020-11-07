@@ -54,6 +54,8 @@ class NotificationScreen extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
+                        NotificationWidget(),
+                        NotificationWidget(),
                       ],
                     ),
                   ),
@@ -76,7 +78,10 @@ class NotificationScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
-                          )
+                          ),
+                          NotificationWidget(),
+                          NotificationWidget(),
+                          NotificationWidget()
                         ],
                       ),
                     ),
@@ -86,6 +91,61 @@ class NotificationScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class NotificationWidget extends StatelessWidget {
+  const NotificationWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 70,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                    image:
+                        DecorationImage(image: AssetImage('assets/face2.jpg')),
+                    borderRadius: BorderRadius.circular(50)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, top: 22),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Jenifer_AI',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Text(
+                    '4 hours ago',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'starts following tou',
+              style: TextStyle(),
+            ),
+          ],
+        ),
       ),
     );
   }

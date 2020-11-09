@@ -67,21 +67,30 @@ class _UserScreenState extends State<UserScreen> {
                                   color: Color(0xFF1ab7ea),
                                   fontWeight: FontWeight.w500),
                             ),
-                            Text('Fashion',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                )),
-                            Text('Living my dreams!!',
-                                style: TextStyle(
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Text('Fashion',
+                                  style: TextStyle(
+                                    fontSize: 14,
                                     color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14)),
-                            Text('KyleS.123@gmail.com',
-                                style: TextStyle(
-                                    color: Color(0xFF1ab7ea),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14)),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 3.0),
+                              child: Text('Living my dreams!!',
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14)),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Text('KyleS.123@gmail.com',
+                                  style: TextStyle(
+                                      color: Color(0xFF1ab7ea),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14)),
+                            ),
                           ],
                         ),
                       ],
@@ -91,7 +100,8 @@ class _UserScreenState extends State<UserScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 25),
                         child: Text('Interests',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold)),
@@ -118,13 +128,19 @@ class _UserScreenState extends State<UserScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Divider(
-                    color: Colors.black,
+                  // SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Divider(
+                      color: Colors.black,
+                    ),
                   ),
                   getUserStats(),
-                  Divider(
-                    color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Divider(
+                      color: Colors.black,
+                    ),
                   )
 
                   // SizedBox(

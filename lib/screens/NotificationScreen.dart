@@ -68,21 +68,23 @@ class NotificationScreen extends StatelessWidget {
                           image: DecorationImage(
                               image: AssetImage('assets/Rectangle 133.png'),
                               fit: BoxFit.fill)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Text(
-                              'Yesterday',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text(
+                                'Yesterday',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                          NotificationWidget(),
-                          NotificationWidget(),
-                          NotificationWidget()
-                        ],
+                            NotificationWidget(),
+                            NotificationWidget(),
+                            NotificationWidget()
+                          ],
+                        ),
                       ),
                     ),
                   ),

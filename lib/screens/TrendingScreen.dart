@@ -12,36 +12,39 @@ class TrendingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      key: scaffoldKey,
-      drawer: DrawerScreen(),
-      body: CustomScrollView(slivers: <Widget>[
-        SliverAppBar(
-            iconTheme: IconThemeData(color: Colors.transparent),
-            backgroundColor: Colors.white,
-            expandedHeight: height / 2.2,
-            // pinned: true,
-            floating: false,
-            elevation: 1,
-            snap: false,
-            actions: <Widget>[],
-            flexibleSpace: new FlexibleSpaceBar(
-              background: buildColumnbg(width, height),
-            )),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return BuildPost(
-                image: AssetImage('assets/third.jpg'),
-                name: 'Jennifer_Cole',
-                category: 'Photographer',
-                avatar: AssetImage('assets/story.png'),
-              );
-            },
-            childCount: 3,
+    return SafeArea(
+      bottom: false,
+      child: Scaffold(
+        key: scaffoldKey,
+        drawer: DrawerScreen(),
+        body: CustomScrollView(slivers: <Widget>[
+          SliverAppBar(
+              iconTheme: IconThemeData(color: Colors.transparent),
+              backgroundColor: Colors.white,
+              expandedHeight: height / 2.0,
+              // pinned: true,
+              floating: false,
+              elevation: 1,
+              snap: false,
+              actions: <Widget>[],
+              flexibleSpace: new FlexibleSpaceBar(
+                background: buildColumnbg(width, height),
+              )),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return BuildPost(
+                  image: AssetImage('assets/third.jpg'),
+                  name: 'Jennifer_Cole',
+                  category: 'Photographer',
+                  avatar: AssetImage('assets/story.png'),
+                );
+              },
+              childCount: 3,
+            ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 

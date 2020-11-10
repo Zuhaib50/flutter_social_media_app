@@ -12,49 +12,93 @@ class HomeScreen extends StatelessWidget with BaseMixins {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      key: scaffoldKey,
-      drawer: DrawerScreen(),
-      body: Stack(
-        children: [
-          Container(
-            height: height / 3.56,
-            width: width,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                BaseHeader(
-                  width: width,
-                  height: height,
-                  pressed: () {
-                    scaffoldKey.currentState.openDrawer();
-                  },
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                BuildStoryContainer(
-                  height: height,
-                  width: width,
-                )
-              ],
+    return SafeArea(
+      bottom: false,
+      child: Scaffold(
+        key: scaffoldKey,
+        drawer: DrawerScreen(),
+        body: CustomScrollView(slivers: <Widget>[
+          SliverAppBar(
+              iconTheme: IconThemeData(color: Colors.transparent),
+              backgroundColor: Colors.white,
+              expandedHeight: height / 3.7,
+              // pinned: true,
+              floating: false,
+              elevation: 1,
+              snap: false,
+              actions: <Widget>[],
+              flexibleSpace: new FlexibleSpaceBar(
+                background: HomeHeader(
+                    height: height, width: width, scaffoldKey: scaffoldKey),
+              )),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return BuildPost(
+                  image: AssetImage('assets/third.jpg'),
+                  name: 'Jennifer_Cole',
+                  category: 'Photographer',
+                  avatar: AssetImage('assets/story.png'),
+                );
+              },
+              childCount: 3,
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: width,
-              height: responsive(context,
-                  isSmallPhone: height / 1.33, isPhone: height / 1.35),
-              child: GetPostList(),
-            ),
+        ]),
+      ),
+    );
+  }
+}
+
+// Align(
+//   alignment: Alignment.bottomCenter,
+//   child: Container(
+//     width: width,
+//     height: responsive(context,
+//         isSmallPhone: height / 1.33, isPhone: height / 1.35),
+//     child: GetPostList(),
+//   ),
+// )
+class HomeHeader extends StatelessWidget {
+  const HomeHeader({
+    Key key,
+    @required this.height,
+    @required this.width,
+    @required this.scaffoldKey,
+  }) : super(key: key);
+
+  final double height;
+  final double width;
+  final GlobalKey<ScaffoldState> scaffoldKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height / 3.56,
+      width: width,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          BaseHeader(
+            width: width,
+            height: height,
+            pressed: () {
+              scaffoldKey.currentState.openDrawer();
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BuildStoryContainer(
+            height: height,
+            width: width,
           )
         ],
       ),

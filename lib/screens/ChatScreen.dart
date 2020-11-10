@@ -15,148 +15,151 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   @override
   Widget build(BuildContext context) {
     print((MediaQuery.of(context).size.width - 40) / 2);
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey.withOpacity(0.2),
-        elevation: 0,
-        leading: FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.arrow_back_ios,
-            )),
-        title: Row(
-          children: <Widget>[
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
-                      fit: BoxFit.cover)),
-            ),
+    return SafeArea(
+      bottom: false,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.grey.withOpacity(0.2),
+          elevation: 0,
+          leading: FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_ios,
+              )),
+          title: Row(
+            children: <Widget>[
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Tyler Nix",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    "Active now",
+                    style: TextStyle(
+                        color: Colors.black.withOpacity(0.4), fontSize: 14),
+                  )
+                ],
+              )
+            ],
+          ),
+          actions: <Widget>[
             SizedBox(
               width: 15,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  "Tyler Nix",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  "Active now",
-                  style: TextStyle(
-                      color: Colors.black.withOpacity(0.4), fontSize: 14),
-                )
-              ],
-            )
           ],
         ),
-        actions: <Widget>[
-          SizedBox(
-            width: 15,
-          ),
-        ],
-      ),
-      body: getBody(),
-      bottomSheet: Container(
-        height: 80,
-        width: double.infinity,
-        decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                width: expand ? 160 : 60,
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(
-                        Icons.add_circle,
-                        size: 35,
-                        color: Color(0xFF1ab7ea),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          expand = !expand;
-                          print('pressed');
-                        });
-                      },
-                    ),
-                    expand == true
-                        ? Row(
-                            children: [
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Icon(
-                                Icons.camera_alt,
-                                size: 35,
-                                color: Color(0xFF1ab7ea),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Icon(
-                                Icons.photo,
-                                size: 35,
-                                color: Color(0xFF1ab7ea),
-                              ),
-                            ],
-                          )
-                        : Text('')
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Container(
+        body: getBody(),
+        bottomSheet: Container(
+          height: 80,
+          width: double.infinity,
+          decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: expand ? 160 : 60,
                   child: Row(
                     children: <Widget>[
-                      Expanded(
-                        child: Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 12),
-                            child: TextField(
-                              cursorColor: Colors.black,
-                              controller: _sendMessageController,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Aa",
+                      IconButton(
+                        icon: Icon(
+                          Icons.add_circle,
+                          size: 35,
+                          color: Color(0xFF1ab7ea),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            expand = !expand;
+                            print('pressed');
+                          });
+                        },
+                      ),
+                      expand == true
+                          ? Row(
+                              children: [
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Icon(
+                                  Icons.camera_alt,
+                                  size: 35,
+                                  color: Color(0xFF1ab7ea),
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Icon(
+                                  Icons.photo,
+                                  size: 35,
+                                  color: Color(0xFF1ab7ea),
+                                ),
+                              ],
+                            )
+                          : Text('')
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 12),
+                              child: TextField(
+                                cursorColor: Colors.black,
+                                controller: _sendMessageController,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Aa",
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Icon(
-                        Icons.thumb_up,
-                        size: 35,
-                        color: Color(0xFF1ab7ea),
-                      ),
-                    ],
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Icon(
+                          Icons.thumb_up,
+                          size: 35,
+                          color: Color(0xFF1ab7ea),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

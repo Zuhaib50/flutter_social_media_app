@@ -18,34 +18,21 @@ class HomeTab extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade100,
       extendBody: true,
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: <Widget>[
-          HomeScreen(),
-          TrendingScreen(),
-          NotificationScreen(),
-          UserScreen()
+      body: Stack(
+        children: [
+          PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: pageController,
+            children: <Widget>[
+              HomeScreen(),
+              TrendingScreen(),
+              NotificationScreen(),
+              UserScreen()
+            ],
+          ),
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        height: 50,
-        width: 50,
-        child: FloatingActionButton(
-          backgroundColor: Colors.white,
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Images()));
-          },
-          child: Icon(
-            Icons.add,
-            color: Color(0xFF1ab7ea),
-          ),
-          elevation: 2.0,
-        ),
-      ),
     );
   }
 }

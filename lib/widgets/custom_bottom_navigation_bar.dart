@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_social_media_app/screens/AddPostScreen.dart';
+import 'package:flutter_social_media_app/widgets/common/BaseIconImage.dart';
 import 'package:flutter_social_media_app/widgets/custom_nav_item.dart';
 
 import '../main.dart';
@@ -20,20 +22,20 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90,
+      height: 190,
       child: Material(
         color: Colors.transparent,
         child: Stack(
           children: <Widget>[
             Positioned(
-                bottom: 30,
+                bottom: 0,
                 child: Image.asset(
                   'assets/Union 5.png',
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.fill,
                 )),
             Positioned(
-              bottom: 35,
+              bottom: 10,
               width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,6 +68,19 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     title: 'User',
                   ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 22.0),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: BaseIconImage(
+                  imageUrl: 'assets/Component -1.png',
+                  pressed: () {
+                     Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Images()));
+                  },
+                ),
               ),
             ),
           ],

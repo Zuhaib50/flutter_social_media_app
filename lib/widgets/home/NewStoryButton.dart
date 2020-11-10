@@ -60,7 +60,7 @@ class _NewStoryButtonState extends State<NewStoryButton> with BaseMixins {
               //  widget.height * 0.045,
             ),
             CircleAvatar(
-              backgroundColor: Color(0xFF1ab7ea).withOpacity(.6),
+              backgroundColor: Color(0xFF1ab7ea).withOpacity(.1),
               child: Icon(
                 Icons.add,
                 color: Colors.black,

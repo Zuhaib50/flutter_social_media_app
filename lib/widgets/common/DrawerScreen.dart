@@ -16,6 +16,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         padding: EdgeInsets.zero,
         children: <Widget>[
           UserAccountsDrawerHeader(
+            decoration: BoxDecoration(color: Color(0xFF1ab7ea)),
             accountName: Text("Kyle Smith"),
             accountEmail: Text("KyleSmith@gmail.com"),
             currentAccountPicture: CircleAvatar(

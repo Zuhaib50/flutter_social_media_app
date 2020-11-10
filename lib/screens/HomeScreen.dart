@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget with BaseMixins {
               iconTheme: IconThemeData(color: Colors.transparent),
               backgroundColor: Colors.white,
               expandedHeight: height / 3.7,
-              // pinned: true,
+              pinned: true,
               floating: false,
               elevation: 1,
               snap: false,
@@ -50,14 +50,6 @@ class HomeScreen extends StatelessWidget with BaseMixins {
   }
 }
 
-// Align(
-//   alignment: Alignment.bottomCenter,
-//   child: Container(
-//     width: width,
-//     height: responsive(context,
-//         isSmallPhone: height / 1.33, isPhone: height / 1.35),
-//     child: GetPostList(),
-//   ),
 // )
 class HomeHeader extends StatelessWidget {
   const HomeHeader({

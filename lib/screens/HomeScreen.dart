@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget with BaseMixins {
                 SliverAppBar(
                     iconTheme: IconThemeData(color: Colors.transparent),
                     backgroundColor: Colors.white,
-                    expandedHeight: height / 3.7,
+                    expandedHeight: height / 5.5,
                     floating: false,
                     elevation: 1,
                     snap: false,

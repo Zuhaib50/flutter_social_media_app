@@ -17,33 +17,46 @@ class TrendingScreen extends StatelessWidget {
       child: Scaffold(
         key: scaffoldKey,
         drawer: DrawerScreen(),
-        body: CustomScrollView(slivers: <Widget>[
-          SliverAppBar(
-              iconTheme: IconThemeData(color: Colors.transparent),
-              backgroundColor: Colors.white,
-              expandedHeight: height / 2.0,
-              // pinned: true,
-              floating: false,
-              elevation: 1,
-              snap: false,
-              actions: <Widget>[],
-              flexibleSpace: new FlexibleSpaceBar(
-                background: buildColumnbg(width, height),
-              )),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return BuildPost(
-                  image: AssetImage('assets/third.jpg'),
-                  name: 'Jennifer_Cole',
-                  category: 'Photographer',
-                  avatar: AssetImage('assets/story.png'),
-                );
+        body: Column(
+          children: [
+            BaseHeader(
+              width: width,
+              height: height,
+              pressed: () {
+                scaffoldKey.currentState.openDrawer();
               },
-              childCount: 3,
             ),
-          ),
-        ]),
+            Expanded(
+              child: CustomScrollView(slivers: <Widget>[
+                SliverAppBar(
+                    iconTheme: IconThemeData(color: Colors.transparent),
+                    backgroundColor: Colors.white,
+                    expandedHeight: height / 2.0,
+                    // pinned: true,
+                    floating: false,
+                    elevation: 1,
+                    snap: false,
+                    actions: <Widget>[],
+                    flexibleSpace: new FlexibleSpaceBar(
+                      background: buildColumnbg(width, height),
+                    )),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return BuildPost(
+                        image: AssetImage('assets/third.jpg'),
+                        name: 'Jennifer_Cole',
+                        category: 'Photographer',
+                        avatar: AssetImage('assets/story.png'),
+                      );
+                    },
+                    childCount: 3,
+                  ),
+                ),
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -52,13 +65,6 @@ class TrendingScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BaseHeader(
-          width: width,
-          height: height,
-          pressed: () {
-            scaffoldKey.currentState.openDrawer();
-          },
-        ),
         TrendingCategories(),
         Padding(
           padding: const EdgeInsets.all(8.0),

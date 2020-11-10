@@ -17,34 +17,48 @@ class HomeScreen extends StatelessWidget with BaseMixins {
       child: Scaffold(
         key: scaffoldKey,
         drawer: DrawerScreen(),
-        body: CustomScrollView(slivers: <Widget>[
-          SliverAppBar(
-              iconTheme: IconThemeData(color: Colors.transparent),
-              backgroundColor: Colors.white,
-              expandedHeight: height / 3.7,
-              pinned: true,
-              floating: false,
-              elevation: 1,
-              snap: false,
-              actions: <Widget>[],
-              flexibleSpace: new FlexibleSpaceBar(
-                background: HomeHeader(
-                    height: height, width: width, scaffoldKey: scaffoldKey),
-              )),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return BuildPost(
-                  image: AssetImage('assets/third.jpg'),
-                  name: 'Jennifer_Cole',
-                  category: 'Photographer',
-                  avatar: AssetImage('assets/story.png'),
-                );
+        body: Column(
+          children: [
+            BaseHeader(
+              width: width,
+              height: height,
+              pressed: () {
+                scaffoldKey.currentState.openDrawer();
               },
-              childCount: 3,
             ),
-          ),
-        ]),
+            Expanded(
+              child: CustomScrollView(slivers: <Widget>[
+                SliverAppBar(
+                    iconTheme: IconThemeData(color: Colors.transparent),
+                    backgroundColor: Colors.white,
+                    expandedHeight: height / 3.7,
+                    floating: false,
+                    elevation: 1,
+                    snap: false,
+                    actions: <Widget>[],
+                    flexibleSpace: new FlexibleSpaceBar(
+                      background: HomeHeader(
+                          height: height,
+                          width: width,
+                          scaffoldKey: scaffoldKey),
+                    )),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return BuildPost(
+                        image: AssetImage('assets/third.jpg'),
+                        name: 'Jennifer_Cole',
+                        category: 'Photographer',
+                        avatar: AssetImage('assets/story.png'),
+                      );
+                    },
+                    childCount: 3,
+                  ),
+                ),
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -78,13 +92,6 @@ class HomeHeader extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          BaseHeader(
-            width: width,
-            height: height,
-            pressed: () {
-              scaffoldKey.currentState.openDrawer();
-            },
-          ),
           SizedBox(
             height: 10,
           ),

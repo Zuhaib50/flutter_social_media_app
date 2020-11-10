@@ -31,7 +31,7 @@ class TrendingScreen extends StatelessWidget {
                 SliverAppBar(
                     iconTheme: IconThemeData(color: Colors.transparent),
                     backgroundColor: Colors.white,
-                    expandedHeight: height / 2.0,
+                    expandedHeight: height / 2.5,
                     // pinned: true,
                     floating: false,
                     elevation: 1,

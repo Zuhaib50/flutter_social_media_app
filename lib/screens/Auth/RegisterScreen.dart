@@ -31,7 +31,7 @@ class RegisterScreen extends StatelessWidget {
               width: width,
               alignment: Alignment.center,
               child: Text(
-                'InSkill',
+                'Inskill',
                 style: TextStyle(
                     fontSize: height * .06,
                     color: Colors.white,

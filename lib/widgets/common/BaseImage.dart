@@ -13,7 +13,7 @@ class BaseImage extends StatelessWidget {
     this.width,
     this.radius,
     this.heroId,
-    this.overlay,
+    @required this.overlay,
   });
 
   _buildImage() => ClipRRect(
